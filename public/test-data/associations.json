@@ -1,0 +1,17 @@
+[
+  {
+    "assoId": "1",
+    "name": "NORDDEUTSCHER FUSSBALL-VERBAND",
+    "supAssociationIdRefs": []
+  },
+  {
+    "assoId": "2",
+    "name": "Schleswig-Holsteinischer Fußballverband",
+    "supAssociationIdRefs": [1]
+  },
+  {
+    "assoId": "3",
+    "name": "Hamburger Fußball-Verband",
+    "supAssociationIdRefs": [2]
+  }
+]

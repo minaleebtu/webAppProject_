@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Football Club: Update</title>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+
+    <link rel="icon" type="image/png" href="../favicon.ico"/>
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
+    <link rel="manifest" href="../manifest.json"/>
+
+    <link rel="stylesheet" href="../css/normalize.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+
+    <script src="../js/v/club/updateClub.mjs" type="module"></script>
+
+    <script type="module">
+        import { setupUiByUserStatus } from "../js/v/authenticateUser.mjs";
+
+        setupUiByUserStatus();
+    </script>
+</head>
+<body>
+<header>
+    <div id="login-management">
+        <small hidden="hidden"><a href="../authenticateUser.html">Sign in or Sign up</a> for using the disabled operations</small>
+        <small hidden="hidden"><button type="button" id="signOut">Sign out</button></small>
+    </div>
+    <div class="wrapper clearfix">
+        <div class="title">
+            <figure><a href="../index.html">
+                <img alt="" title="Home Button"
+                     src="../android-chrome.png" /></a></figure>
+            <h2>Deutscher Fußball-Bund (DFB)</h2>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Person</button>
+            <div class="dropdown-content">
+                <a href="../person/createPerson.html" class="disabled">Create</a>
+                <a href="../person/retrieveAndListAllPersons.html">List</a>
+                <a href="../person/updatePerson.html" class="disabled">Update</a>
+                <a href="../person/deletePerson.html" class="disabled">Delete</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Club</button>
+            <div class="dropdown-content">
+                <a href="createClub.html" class="disabled">Create</a>
+                <a href="retrieveAndListAllClubs.html">List</a>
+                <a href="updateClub.html" class="disabled">Update</a>
+                <a href="deleteClub.html" class="disabled">Delete</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Association</button>
+            <div class="dropdown-content">
+                <a href="../association/createAssociation.html" class="disabled">Create</a>
+                <a href="../association/retrieveAndListAllAssociations.html">List</a>
+                <a href="../association/updateAssociation.html" class="disabled">Update</a>
+                <a href="../association/deleteAssociation.html" class="disabled">Delete</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">National Team</button>
+            <div class="dropdown-content">
+                <a href="../nationalTeam/createNationalTeam.html" class="disabled">Create</a>
+                <a href="../nationalTeam/retrieveAndListAllNationalTeams.html">List</a>
+                <a href="../nationalTeam/updateNationalTeam.html" class="disabled">Update</a>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="wrapper clearfix">
+        <h2 class="intitle">Update a Football Club</h2>
+        <form id="Club">
+            <div>
+                <label>Select Club:
+                    <select name="selectClub">
+                        <option value=""> ---</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label>Club ID:
+                    <output name="clubId"/>
+                </label>
+            </div>
+            <div>
+                <label>Name: <input type="text" name="name"/></label>
+            </div>
+            <fieldset data-bind="gender">
+                <legend>Gender</legend>
+            </fieldset>
+            <div>
+                <label>Association:
+                    <select name="selectAsso">
+                        <option value=""> ---</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <button type="submit" name="commit">Save Changes</button>
+            </div>
+            <a href="../index.html">← Back to main menu</a>
+        </form>
+    </div>
+</main>
+<footer>
+    <div class="foot-content wrapper">
+        Copyright © 2021 Mina Lee (Web Applications | SS 2021),
+        Cyber Security,
+        Brandenburg University of Technology, Germany.
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>[Authenticate] DFB - Deutscher Fußball-Bund e.V.</title>
+    <meta name="description" content="DFB - Deutscher Fußball-Bund e.V.">
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+
+    <link rel="icon" type="image/png" href="favicon.ico"/>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+    <link rel="manifest" href="manifest.json"/>
+
+    <link rel="stylesheet" href="./css/normalize.css"/>
+    <link rel="stylesheet" href="./css/main.css"/>
+
+    <script type="module">
+        import { auth } from "./js/c/initialize.mjs";
+        import { setupSignInAndSignUp } from "./js/v/authenticateUser.mjs";
+
+        //evaluate user authentication status
+        auth.onAuthStateChanged( function (user) {
+            if (!user) { // if user status is unknown
+                // sign in user as 'anonymous'
+                auth.signInAnonymously();
+            }
+        });
+        setupSignInAndSignUp();
+    </script>
+
+</head>
+<body>
+<header>
+    <div class="wrapper clearfix">
+        <div class="title">
+            <figure><a href="./index.html">
+                <img alt="" title="Home Button"
+                     src="android-chrome.png" /></a></figure>
+            <h1>Welcome to</h1>
+            <h2>Deutscher Fußball-Bund (DFB)</h2>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="wrapper clearfix">
+        <form id="User">
+            <div id="error" hidden="hidden"><small></small></div>
+            <div>
+                <label>Email: <input name="email" type="email"/></label>
+            </div>
+            <div>
+                <label>Password: <input name="password" type="password" placeholder="6+ characters"/></label>
+            </div>
+            <div>
+                <button type="button" name="signin">Sign in</button>
+                <button type="button" name="signup">Sign up</button>
+            </div>
+        </form>
+        <p>
+            <b>Sign in</b> if you have an account, or <b>sign up</b> to create an account
+        </p>
+        <a href="./index.html"> Back to main menu</a>
+    </div>
+</main>
+<footer>
+    <div class="foot-content wrapper">
+        Copyright © 2021 Mina Lee (Web Applications | SS 2021),
+        Cyber Security,
+        Brandenburg University of Technology, Germany.
+    </div>
+</footer>
+</body>
+</html>

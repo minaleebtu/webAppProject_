@@ -1,0 +1,186 @@
+[
+  {
+    "personId": "1",
+    "name": "Manuel Neuer",
+    "dateOfBirth": "1986-03-27",
+    "gender": 1,
+    "type": [2],
+    "assoClub_id": 1
+  },
+  {
+    "personId": "2",
+    "name": "Antonio Rudiger",
+    "dateOfBirth": "1993-03-03",
+    "gender": 1,
+    "type": [2],
+    "assoClub_id": 1
+  },
+  {
+    "personId": "3",
+    "name": "Marcel Halstenberg",
+    "dateOfBirth": "1991-09-27",
+    "gender": 1,
+    "type": [2],
+    "assoClub_id": 1
+  },
+  {
+    "personId": "4",
+    "name": "Matthias Ginter",
+    "dateOfBirth": "1994-01-19",
+    "gender": 1,
+    "type": [2],
+    "assoClub_id": 1
+  },
+  {
+    "personId": "5",
+    "name": "Mats Hummels",
+    "dateOfBirth": "1988-12-16",
+    "gender": 1,
+    "type": [2],
+    "assoClub_id": 1
+  },
+  {
+    "personId": "6",
+    "name": "Joshua Kimmich",
+    "dateOfBirth": "1995-02-08",
+    "gender": 1,
+    "type": [2],
+    "assoClub_id": 1
+  },
+  {
+    "personId": "7",
+    "name": "Kai Havertz",
+    "dateOfBirth": "1999-06-11",
+    "gender": 1,
+    "type": [2],
+    "assoClub_id": 1
+  },
+  {
+    "personId": "8",
+    "name": "Toni Kroos",
+    "dateOfBirth": "1990-01-04",
+    "gender": 1,
+    "type": [2],
+    "assoClub_id": 1
+  },
+  {
+    "personId": "9",
+    "name": "Kevin Volland",
+    "dateOfBirth": "1992-07-30",
+    "gender": 1,
+    "type": [2],
+    "assoClub_id": 1
+  },
+  {
+    "personId": "10",
+    "name": "Serge Gnabry",
+    "dateOfBirth": "1995-07-14",
+    "gender": 1,
+    "type": [2],
+    "assoClub_id": 1
+  },
+  {
+    "personId": "11",
+    "name": "Timo Werner",
+    "dateOfBirth": "1996-03-06",
+    "gender": 1,
+    "type": [2],
+    "assoClub_id": 1
+  },
+  {
+    "personId": "13",
+    "name": "Merle Frohms",
+    "dateOfBirth": "1995-01-28",
+    "gender": 2,
+    "type": [2],
+    "assoClub_id": 2
+  },
+  {
+    "personId": "14",
+    "name": "Sophia Kleinherne",
+    "dateOfBirth": "2000-04-12",
+    "gender": 2,
+    "type": [2],
+    "assoClub_id": 2
+  },
+  {
+    "personId": "15",
+    "name": "Jana Feldkamp",
+    "dateOfBirth": "1998-03-15",
+    "gender": 2,
+    "type": [2],
+    "assoClub_id": 2
+  },
+  {
+    "personId": "16",
+    "name": "Leonie Maier",
+    "dateOfBirth": "1992-09-29",
+    "gender": 2,
+    "type": [2],
+    "assoClub_id": 2
+  },
+  {
+    "personId": "17",
+    "name": "Lena Sophie Oberdorf",
+    "dateOfBirth": "2001-12-19",
+    "gender": 2,
+    "type": [2],
+    "assoClub_id": 2
+  },
+  {
+    "personId": "18",
+    "name": "Lea Schuller",
+    "dateOfBirth": "1997-11-12",
+    "gender": 2,
+    "type": [2],
+    "assoClub_id": 2
+  },
+  {
+    "personId": "19",
+    "name": "Sydney Lohmann",
+    "dateOfBirth": "2000-06-19",
+    "gender": 2,
+    "type": [2],
+    "assoClub_id": 2
+  },
+  {
+    "personId": "20",
+    "name": "Svenja Huth",
+    "dateOfBirth": "1991-01-25",
+    "gender": 2,
+    "type": [2],
+    "assoClub_id": 2
+  },
+  {
+    "personId": "21",
+    "name": "Laura Benkarth",
+    "dateOfBirth": "1992-10-14",
+    "gender": 2,
+    "type": [2],
+    "assoClub_id": 2
+  },
+  {
+    "personId": "22",
+    "name": "Laura Freigang",
+    "dateOfBirth": "1998-02-01",
+    "gender": 2,
+    "type": [2],
+    "assoClub_id": 2
+  },
+  {
+    "personId": "23",
+    "name": "Tabea Wassmuth",
+    "dateOfBirth": "1996-08-25",
+    "gender": 2,
+    "type": [2],
+    "assoClub_id": 2
+  },
+  {
+    "personId": "28",
+    "name": "Sandra Starke",
+    "dateOfBirth": "1993-07-31",
+    "gender": 2,
+    "type": [1, 2],
+    "assoClub_id": 2
+  }
+]

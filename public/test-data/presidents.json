@@ -1,0 +1,18 @@
+[
+  {
+    "personId": "25",
+    "name": "Peter Peters",
+    "dateOfBirth": "1965-11-10",
+    "gender": 1,
+    "type": [4],
+    "assoAssociation_id": 1
+  },
+  {
+    "personId": "26",
+    "name": "Britta Carlson",
+    "dateOfBirth": "1978-03-03",
+    "gender": 2,
+    "type": [4],
+    "assoAssociation_id": 2
+  }
+]

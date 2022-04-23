@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>National Team: Create</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#ffffff"/>
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+
+    <link rel="icon" type="image/png" href="../favicon.ico"/>
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
+    <link rel="manifest" href="../manifest.json"/>
+
+    <link rel="stylesheet" href="../css/normalize.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+
+    <script src="../js/v/nationalTeam/createNationalTeam.mjs" type="module"></script>
+    <script type="module">
+        import { setupUiByUserStatus } from "../js/v/authenticateUser.mjs";
+
+        setupUiByUserStatus();
+    </script>
+</head>
+<body>
+<header>
+    <div id="login-management">
+        <small hidden="hidden"><a href="../authenticateUser.html">Sign in or Sign up</a> for using the disabled operations</small>
+        <small hidden="hidden"><button type="button" id="signOut">Sign out</button></small>
+    </div>
+    <div class="wrapper clearfix">
+        <div class="title">
+            <figure><a href="../index.html">
+                <img alt="" title="Home Button"
+                     src="../android-chrome.png" /></a></figure>
+            <h2>Deutscher Fußball-Bund (DFB)</h2>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Person</button>
+            <div class="dropdown-content">
+                <a href="../person/createPerson.html">Create</a>
+                <a href="../person/retrieveAndListAllPersons.html">List</a>
+                <a href="../person/updatePerson.html">Update</a>
+                <a href="../person/deletePerson.html">Delete</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Club</button>
+            <div class="dropdown-content">
+                <a href="../club/createClub.html">Create</a>
+                <a href="../club/retrieveAndListAllClubs.html">List</a>
+                <a href="../club/updateClub.html">Update</a>
+                <a href="../club/deleteClub.html">Delete</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Association</button>
+            <div class="dropdown-content">
+                <a href="../association/createAssociation.html">Create</a>
+                <a href="../association/retrieveAndListAllAssociations.html">List</a>
+                <a href="../association/updateAssociation.html">Update</a>
+                <a href="../association/deleteAssociation.html">Delete</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">National Team</button>
+            <div class="dropdown-content">
+                <a href="createNationalTeam.html">Create</a>
+                <a href="retrieveAndListAllNationalTeams.html">List</a>
+                <a href="updateNationalTeam.html">Update</a>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="wrapper clearfix">
+        <h2 class="intitle">Create a National Team</h2>
+        <form id="Team">
+            <fieldset data-bind="gender">
+                <legend>Gender</legend>
+            </fieldset>
+            <div>
+                <label>Coach:
+                    <select name="selectCoach">
+                        <option value=""> ---</option>
+                    </select>
+                </label>
+            </div>
+            <div class="widget">
+                <label for="crtPlayers">Players: <span></span></label>
+                <div id="crtPlayers" class="MultiSelectionWidget"></div>
+            </div>
+            <div class="saveBtn">
+                <button name="commit" type="button">Save</button>
+                <progress hidden="hidden" max="100">%</progress>
+            </div>
+        </form>
+        <a href="../index.html">← Back to main menu</a>
+    </div>
+</main>
+<footer>
+    <div class="foot-content wrapper">
+        Copyright © 2021 Mina Lee (Web Applications | SS 2021),
+        Cyber Security,
+        Brandenburg University of Technology, Germany.
+    </div>
+</footer>
+</body>
+</html>

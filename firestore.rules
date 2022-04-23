@@ -1,0 +1,130 @@
+rules_version = '2';
+service cloud.firestore {
+    match /databases/{database}/documents {
+        /** VALIDATION FUNCTIONS **/
+
+        // Person
+        // if present, check if it is integer
+        function checkPersonId( personId) {
+            return (personId is int || !("personId" in request.resource.data));
+        }
+        // check if exist document with same Person ID
+        function checkPersonIdAsId( personId) {
+            return !(exists(/databases/$(database)/documents/persons/$(personId)));
+        }
+        // check all constraints for dateOfBirth: min, max and integer
+        function checkDateOfBirth( dateOfBirth) {
+            return (timestamp.date( year,1,1).toMillis() < request.time.toMillis()
+                    && dateOfBirth > 1890
+                    && dateOfBirth is int
+                    && dateOfBirth != null);
+        }
+
+        // FootballClub
+        // if present, check if it is integer
+        function checkClubId( clubId) {
+            return (clubId is int || !("clubId" in request.resource.data));
+        }
+        // check if exist document with same Club ID
+        function checkClubIdAsId( clubId) {
+            return !(exists(/databases/$(database)/documents/clubs/$(clubId)));
+        }
+
+        // FootballAssociation
+        // if present, check if it is integer
+        function checkAssoId( assoId) {
+            return (assoId is int || !("assoId" in request.resource.data));
+        }
+        // check if exist document with same Association ID
+        function checkAssoIdAsId( clubId) {
+            return !(exists(/databases/$(database)/documents/associations/$(assoId)));
+        }
+
+        /** VALIDATION RULES **/
+
+        match /{document=**} {
+            /** RULES FOR allow read WITH CONVENIENCE METHOD - LOW GRANULARITY **/
+            /** NO authentication required **/
+            allow read: if request.auth != null;
+            /** RULES FOR allow write WITH STANDARD METHODS - HIGH GRANULARITY **/
+            /** authentication required **/
+            allow write: if request.auth.token.email_verified == true;
+        }
+        // Person
+        match /{persons}/{document=**} {
+            /** RULES FOR allow read WITH CONVENIENCE METHOD - LOW GRANULARITY **/
+            /** NO authentication required **/
+            allow read: if request.auth != null;
+
+            /** RULES FOR allow write WITH STANDARD METHODS - HIGH GRANULARITY **/
+            /** authentication required **/
+            //validate when create new person record
+            allow create: if request.auth.token.email_verified == true
+                             && checkPersonIdAsId( request.resource.data.personId) == true
+                             && checkPersonId( request.resource.data.personId) == true
+                             && request.resource.data.name != null
+                             && checkDateOfBirth( request.resource.data.dateOfBirth) == true
+                             && request.resource.data.gender != null
+                             && request.resource.data.type != null;
+
+            // validate when update person record
+            allow update: if request.auth.token.email_verified == true
+                             && (request.resource.data.diff( resource.data).affectedKeys()
+                                 .hasOnly(['name', 'dateOfBirth', 'gender', 'type']))
+                             && request.resource.data.dateOfBirth != null ?
+                                                                     checkDateOfBirth( request.resource.data.dateOfBirth) : true;
+
+            // validate when delete person record
+            allow delete: if request.auth.token.email_verified == true;
+        }
+
+        /** VALIDATION RULES **/
+        // FootballClub
+        match /{clubs}/{document=**} {
+            /** RULES FOR allow read WITH CONVENIENCE METHOD - LOW GRANULARITY **/
+            /** NO authentication required **/
+            allow read: if request.auth != null;
+
+            /** RULES FOR allow write WITH STANDARD METHODS - HIGH GRANULARITY **/
+            /** authentication required **/
+            //validate when create new football club record
+            allow create: if request.auth.token.email_verified == true
+                             && checkClubIdAsId( request.resource.data.clubId) == true
+                             && checkClubId( request.resource.data.clubId) == true
+                             && request.resource.data.name != null
+                             && request.resource.data.gender != null;
+
+            // validate when update football club record
+            allow update: if request.auth.token.email_verified == true
+                             && (request.resource.data.diff( resource.data).affectedKeys()
+                                 .hasOnly(['name', 'gender']));
+
+            // validate when delete football club record
+            allow delete: if request.auth.token.email_verified == true;
+        }
+
+        /** VALIDATION RULES **/
+        // FootballAssociation
+        match /{associations}/{document=**} {
+            /** RULES FOR allow read WITH CONVENIENCE METHOD - LOW GRANULARITY **/
+            /** NO authentication required **/
+            allow read: if request.auth != null;
+
+            /** RULES FOR allow write WITH STANDARD METHODS - HIGH GRANULARITY **/
+            /** authentication required **/
+            //validate when create new football association record
+            allow create: if request.auth.token.email_verified == true
+                             && checkAssoIdAsId( request.resource.data.assoId) == true
+                             && checkAssoId( request.resource.data.assoId) == true
+                             && request.resource.data.name != null;
+
+            // validate when update football association record
+            allow update: if request.auth.token.email_verified == true
+                             && (request.resource.data.diff( resource.data).affectedKeys()
+                                 .hasOnly(['name']));
+
+            // validate when delete football association record
+            allow delete: if request.auth.token.email_verified == true;
+        }
+    }
+}

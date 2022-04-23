@@ -1,0 +1,26 @@
+[
+  {
+    "personId": "12",
+    "name": "Joachim Löw",
+    "dateOfBirth": "1960-02-03",
+    "gender": 1,
+    "type": [3],
+    "assoClub_id": 1
+  },
+  {
+    "personId": "24",
+    "name": "Martina Voss-Tecklenburg",
+    "dateOfBirth": "1967-12-22",
+    "gender": 2,
+    "type": [3],
+    "assoClub_id": 3
+  },
+  {
+    "personId": "27",
+    "name": "Patrik Grolimund",
+    "dateOfBirth": "1980-08-19",
+    "gender": 1,
+    "type": [1, 3],
+    "assoClub_id": 2
+  }
+]

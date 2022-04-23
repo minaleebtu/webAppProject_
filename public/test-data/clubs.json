@@ -1,0 +1,38 @@
+[
+  {
+    "clubId": "1",
+    "name": "Arsenal FC",
+    "gender": 1,
+    "association_id": 1
+  },
+  {
+    "clubId": "2",
+    "name": "Bayern Munich",
+    "gender": 1,
+    "association_id": 1
+  },
+  {
+    "clubId": "3",
+    "name": "Eintracht Frankfurt",
+    "gender": 1,
+    "association_id": 2
+  },
+  {
+    "clubId": "4",
+    "name": "Bayern Munich",
+    "gender": 2,
+    "association_id": 2
+  },
+  {
+    "clubId": "5",
+    "name": "Eintracht Frankfurt",
+    "gender": 2,
+    "association_id": 3
+  },
+  {
+    "clubId": "6",
+    "name": "SGS Essen",
+    "gender": 2,
+    "association_id": 3
+  }
+]

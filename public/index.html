@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>DFB - Deutscher Fußball-Bund e.V.</title>
+    <meta name="description" content="DFB - Deutscher Fußball-Bund e.V.">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#ffffff"/>
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+
+    <link rel="icon" type="image/png" href="favicon.ico"/>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+    <link rel="manifest" href="manifest.json"/>
+
+    <link rel="stylesheet" href="./css/normalize.css"/>
+    <link rel="stylesheet" href="./css/main.css"/>
+
+    <script type="module">
+        import { setupUiByUserStatus } from "./js/v/authenticateUser.mjs";
+        import { clearData } from "./js/c/app.mjs";
+        import Person from "./js/m/Person.mjs";
+        import Member from "./js/m/Member.mjs";
+        import Player from "./js/m/Player.mjs";
+        import Coach from "./js/m/Coach.mjs";
+        import President from "./js/m/President.mjs";
+        import FootballClub from "./js/m/FootballClub.mjs";
+        import FootballAssociation from "./js/m/FootballAssociation.mjs";
+        import NationalTeam from "./js/m/NationalTeam.mjs";
+
+        setupUiByUserStatus();
+
+        const clearButtonAll = document.getElementById("clearDataAll"),
+            generateTestDataButtonAll = document.getElementById("generateTestDataAll");
+
+        // Set event handlers for the buttons "clearData" and "generateTestData"
+        clearButtonAll.addEventListener("click", clearData);
+        generateTestDataButtonAll.addEventListener("click", function() {
+                Person.generateTestData();
+                Member.generateTestData();
+                Player.generateTestData();
+                Coach.generateTestData();
+                President.generateTestData();
+                FootballAssociation.generateTestData();
+                FootballClub.generateTestData();
+                NationalTeam.generateTestData();
+            }
+        );
+    </script>
+</head>
+<body>
+<header>
+    <div id="login-management">
+        <small hidden="hidden"><a href="./authenticateUser.html">Sign in or Sign up</a> for using the disabled operations</small>
+        <small hidden="hidden"><button type="button" id="signOut">Sign out</button></small>
+    </div>
+    <div class="wrapper clearfix">
+        <div class="title">
+            <figure><a href="./index.html">
+                <img alt="" title="Home Button"
+                     src="android-chrome.png" /></a></figure>
+            <h2>Deutscher Fußball-Bund (DFB)</h2>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Person</button>
+            <div class="dropdown-content">
+                <a href="./person/createPerson.html" class="disabled">Create</a>
+                <a href="./person/retrieveAndListAllPersons.html" class="disabled">List</a>
+                <a href="./person/updatePerson.html" class="disabled">Update</a>
+                <a href="./person/deletePerson.html" class="disabled">Delete</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Club</button>
+            <div class="dropdown-content">
+                <a href="./club/createClub.html" class="disabled">Create</a>
+                <a href="./club/retrieveAndListAllClubs.html" class="disabled">List</a>
+                <a href="./club/updateClub.html" class="disabled">Update</a>
+                <a href="./club/deleteClub.html" class="disabled">Delete</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Association</button>
+            <div class="dropdown-content">
+                <a href="./association/createAssociation.html" class="disabled">Create</a>
+                <a href="./association/retrieveAndListAllAssociations.html" class="disabled">List</a>
+                <a href="./association/updateAssociation.html" class="disabled">Update</a>
+                <a href="./association/deleteAssociation.html" class="disabled">Delete</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">National Team</button>
+            <div class="dropdown-content">
+                <a href="./nationalTeam/createNationalTeam.html" class="disabled">Create</a>
+                <a href="./nationalTeam/retrieveAndListAllNationalTeams.html" class="disabled">List</a>
+                <a href="./nationalTeam/updateNationalTeam.html" class="disabled">Update</a>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="wrapper clearfix">
+        <div class="desc">
+            <p>&nbsp;&nbsp;The German Football Association (DFB) is the head of football in Germany and is
+                one of the founding members of the FIFA and UEFA. It includes many football associations
+                and football clubs. The headquarter of the DFB is in Frankfurt am Main.
+                It has also lots of members and is therefore, the greatest national sports association.
+                As the national football association it also organizes the national teams for women and men,
+                in case of players and coach. </p>
+            <p> &nbsp;The app should be used for organizing and manage the structures of the DFB.
+                It will therefore, have the task for handling the football associations of the DFB and
+                the associated football clubs with people who are associated in them.
+                Moreover, the app manages the information of national teams for women and men.</p>
+        </div>
+        <div class="two-col-menu">
+            <ul class="menu">
+                <li><button type="button" id = "generateTestDataAll" class="generateTestData" disabled="disabled">Generate test data</button></li>
+                <li><button type="button" id = "clearDataAll" class="clearData" disabled="disabled">Clear database</button></li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer class="Footer">
+    <div class="foot-content wrapper">
+        Copyright © 2021 Mina Lee (Web Applications | SS 2021),
+        Cyber Security,
+        Brandenburg University of Technology, Germany.
+    </div>
+</footer>
+</body>
+</html>
